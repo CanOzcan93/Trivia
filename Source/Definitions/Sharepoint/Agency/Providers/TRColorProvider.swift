@@ -1,0 +1,42 @@
+//
+//  TRColorProvider.swift
+//  Trivia
+//
+//  Created by Can Özcan on 24.10.2019.
+//  Copyright © 2019 CanOzcan. All rights reserved.
+//
+
+import UIKit
+
+open class TRColorProvider {
+    
+    public required init() {
+        
+    }
+    
+    open func hexToUIColor(hexString: String, alpha: CGFloat = 1.0) -> UIColor {
+        
+        let hexStri: String = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        let scanner = Scanner(string: hexStri)
+        
+        if (hexStri.hasPrefix("#")) {
+            scanner.scanLocation = 1
+        }
+        
+        var color: UInt32 = 0
+        scanner.scanHexInt32(&color)
+        
+        let mask = 0x000000FF
+        let r = Int(color >> 16) & mask
+        let g = Int(color >> 8) & mask
+        let b = Int(color) & mask
+        
+        let red   = CGFloat(r) / 255.0
+        let green = CGFloat(g) / 255.0
+        let blue  = CGFloat(b) / 255.0
+        
+        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+        
+    }
+    
+}
