@@ -13,7 +13,7 @@ class App: TRApplication {
     
     override func onRootViewController() -> UIViewController? {
                 
-        return Main.Module.getInstance().factory.sheetFactory.getRoomSheet()
+        return Main.Module.getInstance().factory.sheetFactory.getSplashSheet()
         
     }
     

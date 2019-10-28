@@ -48,6 +48,7 @@ open class TRListItemView: UITableViewCell {
         self.set = [NSLayoutConstraint]()
         
         let wrapper = contentView
+        self.backgroundColor = .white
         
         onInit()
         onInjection()

@@ -30,6 +30,41 @@ extension Main {
             
         }
         
+        public func toRoomSheet() {
+            
+            sheet = sheetFactory.getRoomSheet()
+            transition = transitionFactory.getFromRightToLeft()
+            
+            present()
+            
+        }
+        
+        public func toQuestionsSheet() {
+            
+            sheet = sheetFactory.getQuestionsSheet()
+            transition = transitionFactory.getFromRightToLeft()
+            
+            present()
+            
+        }
+        
+        public func toFinalSheet() {
+            
+            sheet = sheetFactory.getFinalSheet()
+            transition = transitionFactory.getFromRightToLeft()
+            
+            present()
+            
+        }
+        
+        public func goBack() {
+            
+            transition = transitionFactory.getFromLeftToRight()
+            
+            dismiss()
+            
+        }
+        
     }
     
 }

@@ -45,7 +45,7 @@ open class TRListView<ListItemType: TRListItemView>: UITableView, UITableViewDel
         self.separatorStyle = .none
         self.rowHeight = UITableView.automaticDimension
         self.register(ListItemType.self, forCellReuseIdentifier: ListItemType.dequeueItemName)
-        
+        self.backgroundColor = .white
         self.translatesAutoresizingMaskIntoConstraints = false
         
         onInit()
