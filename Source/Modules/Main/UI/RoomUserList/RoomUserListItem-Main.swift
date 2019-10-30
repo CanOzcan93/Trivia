@@ -53,6 +53,7 @@ extension Main {
             self.tv_name = TRTextView()
             tv_name.backgroundColor = .white
             tv_name.text = name
+            tv_name.font = fontProvider.getLightMedium()
             tv_name.textAlignment = .center
             tv_name.textColor = .systemBlue
             item.addSubview(tv_name)
@@ -71,7 +72,7 @@ extension Main {
             
             super.onConstrain(set: &set, wrapper: wrapper, item: item)
             
-            set.append(NSLayoutConstraint(item: wrapper, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 30))
+            set.append(NSLayoutConstraint(item: wrapper, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 40))
             
             set.append(NSLayoutConstraint(item: item, attribute: .right, relatedBy: .equal, toItem: wrapper, attribute: .right, multiplier: 1, constant: -5))
             set.append(NSLayoutConstraint(item: item, attribute: .left, relatedBy: .equal, toItem: wrapper, attribute: .left, multiplier: 1, constant: 5))

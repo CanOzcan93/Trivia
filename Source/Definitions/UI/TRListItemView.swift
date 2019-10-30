@@ -30,7 +30,6 @@ open class TRListItemView: UITableViewCell {
         item.backgroundColor = .white
         contentView.addSubview(item)
     }
-    open func onInjection() {}
     open func onConstruct(wrapper: UIView, item: TRView) {}
     open func onConstrain(set: inout [NSLayoutConstraint], wrapper: UIView, item: TRView) {}
     
@@ -97,6 +96,38 @@ open class TRListItemView: UITableViewCell {
     public func shift(from: NSLayoutConstraint, to: NSLayoutConstraint) {
         self.release(constraint: from)
         self.constrain(constraint: to)
+    }
+    
+    /*
+     -
+     -
+     // MARK: Sharepoint
+     -
+     -
+     */
+    
+    private var sharepoint: TRSharepoint!
+    
+    private var agency: TRAgency!
+    
+    private var provider: TRProvider!
+    
+    public var colorProvider: TRColorProvider!
+    public var fontProvider: TRFontProvider!
+    public var imageProvider: TRImageProvider!
+    
+    open func onInjection() {
+        
+        sharepoint = TRSharepoint.getInstance()
+        
+        agency = sharepoint.agency
+        
+        provider = agency.provider
+        
+        colorProvider = provider.colorProvider
+        fontProvider = provider.fontProvider
+        imageProvider = provider.imageProvider
+        
     }
     
 }

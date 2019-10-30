@@ -45,7 +45,7 @@ extension Main {
 
         private func constructListView() {
 
-            lv = RoomUserList(items: [RoomUserListItem(name: "Can"),RoomUserListItem(name: "Murat"),RoomUserListItem(name: "Timucin")])
+            lv = RoomUserList(items: [])
             self.addSubview(lv)
 
         }

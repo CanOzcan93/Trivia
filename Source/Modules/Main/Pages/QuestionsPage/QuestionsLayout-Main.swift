@@ -28,7 +28,10 @@ extension Main {
         private var btn_third: TRButton!
         private var btn_fourth: TRButton!
         
-        private var popup_wildcard: WildCardPopup!
+        private var tv_time: TRTextView!
+        private var tv_status: TRTextView!
+        
+        public var popup_wildcard: WildCardPopup!
 
         public override func onConstruct() {
 
@@ -52,6 +55,8 @@ extension Main {
             constructSecondButton()
             constructThirdButton()
             constructFourthButton()
+            constructTimeTextView()
+            constructStatusTextView()
 
             constructWildCardPopup()
         }
@@ -71,7 +76,7 @@ extension Main {
         private func constructQuestionValueTextView() {
 
             tv_question_value = TRTextView()
-            tv_question_value.text = "1/12"
+            tv_question_value.text = "0/12"
             tv_question_value.textAlignment = .center
             tv_question_value.textColor = colorProvider.getWhiteFull()
             self.addSubview(tv_question_value)
@@ -91,7 +96,7 @@ extension Main {
         private func constructWildCardValueTextView() {
 
             tv_wild_value = TRTextView()
-            tv_wild_value.text = "3"
+            tv_wild_value.text = ""
             tv_wild_value.textAlignment = .center
             tv_wild_value.textColor = colorProvider.getWhiteFull()
             self.addSubview(tv_wild_value)
@@ -111,7 +116,7 @@ extension Main {
         private func constructQuestionTextView() {
 
             tv_question = TRTextView()
-            tv_question.text = "What is the chemical formula for water?"
+            tv_question.text = ""
             tv_question.numberOfLines = 0
             tv_question.textAlignment = .center
             tv_question.textColor = colorProvider.getDarkGray()
@@ -130,7 +135,8 @@ extension Main {
         private func constructFirstButton() {
 
             btn_first = TRButton()
-            btn_first.setTitle("CO2", for: .normal)
+            btn_first.setTitle("", for: .normal)
+            btn_first.isUserInteractionEnabled = false
             btn_first.setTitleColor(colorProvider.getBlackFull(), for: .normal)
             btn_first.backgroundColor = colorProvider.getWhiteFull()
             self.addSubview(btn_first)
@@ -140,7 +146,8 @@ extension Main {
         private func constructSecondButton() {
 
             btn_second = TRButton()
-            btn_second.setTitle("H2O", for: .normal)
+            btn_second.setTitle("", for: .normal)
+            btn_second.isUserInteractionEnabled = false
             btn_second.setTitleColor(colorProvider.getBlackFull(), for: .normal)
             btn_second.backgroundColor = colorProvider.getWhiteFull()
             self.addSubview(btn_second)
@@ -150,7 +157,8 @@ extension Main {
         private func constructThirdButton() {
 
             btn_third = TRButton()
-            btn_third.setTitle("C2H5O", for: .normal)
+            btn_third.setTitle("", for: .normal)
+            btn_third.isUserInteractionEnabled = false
             btn_third.setTitleColor(colorProvider.getBlackFull(), for: .normal)
             btn_third.backgroundColor = colorProvider.getWhiteFull()
             self.addSubview(btn_third)
@@ -160,19 +168,40 @@ extension Main {
         private func constructFourthButton() {
 
             btn_fourth = TRButton()
-            btn_fourth.setTitle("H2N", for: .normal)
+            btn_fourth.setTitle("", for: .normal)
+            btn_fourth.isUserInteractionEnabled = false
             btn_fourth.setTitleColor(colorProvider.getBlackFull(), for: .normal)
             btn_fourth.backgroundColor = colorProvider.getWhiteFull()
             self.addSubview(btn_fourth)
 
         }
         
+        private func constructTimeTextView() {
+
+             tv_time = TRTextView()
+             tv_time.text = "Remaining: "
+             tv_time.textColor = colorProvider.getDarkGray()
+             self.addSubview(tv_time)
+
+        }
+        
+        private func constructStatusTextView() {
+
+            tv_status = TRTextView()
+            tv_status.text = "Wild Card: Not Used\nMode: Contender"
+            tv_status.numberOfLines = 2
+            tv_status.textAlignment = .center
+            tv_status.textColor = colorProvider.getDarkGray()
+            self.addSubview(tv_status)
+
+        }
+        
         private func constructWildCardPopup() {
 
             popup_wildcard = WildCardPopup(layout: self)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                self.popup_wildcard.show()
-            }
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+//                self.popup_wildcard.show()
+//            }
 
         }
         
@@ -191,6 +220,8 @@ extension Main {
             constrainSecondButton(set: &set)
             constrainThirdButton(set: &set)
             constrainFourthButton(set: &set)
+            constrainTimeTextView(set: &set)
+            constrainStatusTextView(set: &set)
             
         }
         
@@ -293,19 +324,144 @@ extension Main {
 
         }
         
+        private func constrainTimeTextView(set: inout [NSLayoutConstraint]) {
+
+             set.append(NSLayoutConstraint(item: tv_time, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 20))
+             set.append(NSLayoutConstraint(item: tv_time, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: -15))
+             set.append(NSLayoutConstraint(item: tv_time, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 0.5, constant: -40))
+             set.append(NSLayoutConstraint(item: tv_time, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 50))
+
+        }
         
-        private func updateQuestion() {
+        private func constrainStatusTextView(set: inout [NSLayoutConstraint]) {
+
+            set.append(NSLayoutConstraint(item: tv_status, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: -20))
+            set.append(NSLayoutConstraint(item: tv_status, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: -15))
+            set.append(NSLayoutConstraint(item: tv_status, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 0.5, constant: 0))
+            set.append(NSLayoutConstraint(item: tv_status, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 50))
+
+        }
+        
+        
+        public func updateQuestion(question: String, answers: [String], questionNumber: UInt) {
             
-            tv_question.text = "fdsafhsadjkfgjsadkhgfjkhsadgfhjkasdgfhjkasdgfjkkgadsjhkfgsadkhjgfkhjasdgfhjkasdgfkhjsadgfjhksadgfjhasdjhvcsdhjkfgghsdabhcsdabvhjkafbicbaubkbsdfas"
+            tv_question.text = question
+            let ordered = answers.shuffled()
+            btn_first.setTitle(ordered[0], for: .normal)
+            btn_second.setTitle(ordered[1], for: .normal)
+            btn_third.setTitle(ordered[2], for: .normal)
+            btn_fourth.setTitle(ordered[3], for: .normal)
+            tv_question_value.text = "\(questionNumber)/12"
+            
             
         }
         
-        public func addFunctionToButtons(act: @escaping Action) {
+        public func addFunctionToButtons(act: @escaping ActionWith<TRButton>) {
             
-            btn_first.onClick(act)
-            btn_second.onClick(act)
-            btn_third.onClick(act)
-            btn_fourth.onClick(act)
+            btn_first.isUserInteractionEnabled = true
+            btn_second.isUserInteractionEnabled = true
+            btn_third.isUserInteractionEnabled = true
+            btn_fourth.isUserInteractionEnabled = true
+            
+            btn_first.onClickWithButton { (btn) in
+                act(btn)
+            }
+            btn_second.onClickWithButton { (btn) in
+                act(btn)
+            }
+            btn_third.onClickWithButton { (btn) in
+                act(btn)
+            }
+            btn_fourth.onClickWithButton { (btn) in
+                act(btn)
+            }
+            
+        }
+        
+        public func changeTimeValue(text: String){
+            tv_time.text = text
+        }
+        
+        public func changeWildCard(count: UInt){
+            
+            tv_wild_value.text = "\(count)"
+            
+        }
+        
+        public func changeStatus(text:String) {
+
+            tv_status.text = text
+
+        }
+        
+        public func disableButtons() {
+            btn_first.isUserInteractionEnabled = false
+            btn_second.isUserInteractionEnabled = false
+            btn_third.isUserInteractionEnabled = false
+            btn_fourth.isUserInteractionEnabled = false
+        }
+        
+        public func enableButtons() {
+            
+            btn_first.isUserInteractionEnabled = true
+            btn_first.backgroundColor = .white
+            btn_second.isUserInteractionEnabled = true
+            btn_second.backgroundColor = .white
+            btn_third.isUserInteractionEnabled = true
+            btn_third.backgroundColor = .white
+            btn_fourth.isUserInteractionEnabled = true
+            btn_fourth.backgroundColor = .white
+            
+        }
+        
+        public func resetButtonsColor() {
+            
+            btn_first.backgroundColor = .white
+            btn_second.backgroundColor = .white
+            btn_third.backgroundColor = .white
+            btn_fourth.backgroundColor = .white
+            
+        }
+        
+        public func changeButtonsColor(correctAnswer: String, yourAnswer: String){
+            
+            if correctAnswer == yourAnswer {
+                
+                if btn_first.title(for: .normal)! == yourAnswer {
+                    btn_first.backgroundColor = .green
+                } else if btn_second.title(for: .normal)! == yourAnswer {
+                    btn_second.backgroundColor = .green
+                } else if btn_third.title(for: .normal)! == yourAnswer {
+                    btn_third.backgroundColor = .green
+                } else if btn_fourth.title(for: .normal)! == yourAnswer {
+                    btn_fourth.backgroundColor = .green
+                }
+                
+            }
+                
+            else {
+                
+                if btn_first.title(for: .normal)! == yourAnswer {
+                    btn_first.backgroundColor = .red
+                } else if btn_second.title(for: .normal)! == yourAnswer {
+                    btn_second.backgroundColor = .red
+                } else if btn_third.title(for: .normal)! == yourAnswer {
+                    btn_third.backgroundColor = .red
+                } else if btn_fourth.title(for: .normal)! == yourAnswer {
+                    btn_fourth.backgroundColor = .red
+                }
+                
+                if btn_first.title(for: .normal)! == correctAnswer {
+                    btn_first.backgroundColor = .green
+                } else if btn_second.title(for: .normal)! == correctAnswer {
+                    btn_second.backgroundColor = .green
+                } else if btn_third.title(for: .normal)! == correctAnswer {
+                    btn_third.backgroundColor = .green
+                } else if btn_fourth.title(for: .normal)! == correctAnswer {
+                    btn_fourth.backgroundColor = .green
+                }
+                
+            }
             
         }
         

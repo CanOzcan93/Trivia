@@ -51,11 +51,16 @@ extension Main {
         private func constructLoadingTextView() {
 
             tv_loading = TRTextView()
-            tv_loading.text = "Loading..."
+            tv_loading.text = "Finding a Room..."
             tv_loading.textAlignment = .center
             tv_loading.font = fontProvider.getSemiboldBiggest()
-            tv_loading.textColor = colorProvider.getWhiteFull()
+            tv_loading.textColor = self.colorProvider.getDarkGray()
+            tv_loading.alpha = 0
             self.addSubview(tv_loading)
+            
+            UIView.animate(withDuration: 1.0, delay: 2, options: [.repeat,.autoreverse], animations: {
+                self.tv_loading.alpha = 1
+            }, completion: nil)
 
         }
 

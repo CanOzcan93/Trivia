@@ -48,7 +48,7 @@ extension Main {
             
             constructTextView()
             constructYesButton()
-            constructNoButton()
+            constructNoButton(layout: layout)
             
         }
         
@@ -106,13 +106,14 @@ extension Main {
 
         }
 
-        private func constructNoButton() {
+        private func constructNoButton(layout: TRLayout) {
 
             self.btn_no = TRButton()
             self.btn_no.backgroundColor = self.colorProvider.getDarkGray()
             self.btn_no.setTitle("No", for: .normal)
             self.btn_no.layer.cornerRadius = 20
             self.btn_no.onClick {
+                (layout as! QuestionsLayout).changeStatus(text: "Wild Card: Not Used\nMode: Viewer")
                 self.hide()
             }
 

@@ -14,6 +14,21 @@ extension Main {
         
         public override func onLayoutReady(layout: Main.FinalLayout) {
             super.onLayoutReady(layout: layout)
+            self.stateMachine.isShowingFinalScreen(state: true)
+            var list = self.dataStorage.grabUserList().shuffled()
+            
+            if self.stateMachine.gameFailing() {
+                list.removeAll{ $0 == self.dataStorage.grabCurrentUser()!.name }
+            }
+            
+            var userList = [RoomUserListItem]()
+            for index in list{
+                userList.append(RoomUserListItem(name: index))
+            }
+            
+            layout.lv.reset()
+            layout.lv.addItems(userList)
+            
             
         }
         

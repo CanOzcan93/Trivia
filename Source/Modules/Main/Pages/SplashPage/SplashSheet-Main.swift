@@ -15,7 +15,11 @@ extension Main {
         public override func onLayoutReady(layout: Main.SplashLayout) {
             super.onLayoutReady(layout: layout)
             
-            DispatchQueue.main.asyncAfter(deadline: .now()+5) {
+            DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+                self.networkManager.defaultSocket().connect()
+            }
+            
+            eventManager.listen(key: "afterFindRoom") {
                 self.demonstrator.toRoomSheet()
             }
             

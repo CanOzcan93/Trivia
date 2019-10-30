@@ -57,6 +57,9 @@
 		E68FA65F2367893400EE924B /* SplashSheet-Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA65E2367893400EE924B /* SplashSheet-Main.swift */; };
 		E68FA6612367894400EE924B /* SplashLayout-Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA6602367894400EE924B /* SplashLayout-Main.swift */; };
 		E68FA663236789BA00EE924B /* TRImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA662236789BA00EE924B /* TRImageView.swift */; };
+		E68FA6662368396700EE924B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA6652368396700EE924B /* User.swift */; };
+		E68FA6682368BBCF00EE924B /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA6672368BBCF00EE924B /* StringExtension.swift */; };
+		E68FA66A2368C9EC00EE924B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA6692368C9EC00EE924B /* Question.swift */; };
 		E693C75623608D1000A76E0D /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693C75523608D1000A76E0D /* Run.swift */; };
 		E693C75F23608D1100A76E0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E693C75E23608D1100A76E0D /* Assets.xcassets */; };
 		E6DAED482364DDDF0041ECF3 /* Factory-Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DAED472364DDDF0041ECF3 /* Factory-Main.swift */; };
@@ -125,6 +128,9 @@
 		E68FA65E2367893400EE924B /* SplashSheet-Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplashSheet-Main.swift"; sourceTree = "<group>"; };
 		E68FA6602367894400EE924B /* SplashLayout-Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplashLayout-Main.swift"; sourceTree = "<group>"; };
 		E68FA662236789BA00EE924B /* TRImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRImageView.swift; sourceTree = "<group>"; };
+		E68FA6652368396700EE924B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E68FA6672368BBCF00EE924B /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		E68FA6692368C9EC00EE924B /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		E693C75223608D1000A76E0D /* Trivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E693C75523608D1000A76E0D /* Run.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
 		E693C75E23608D1100A76E0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -438,6 +444,15 @@
 			path = SplashPage;
 			sourceTree = "<group>";
 		};
+		E68FA6642368392D00EE924B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E68FA6652368396700EE924B /* User.swift */,
+				E68FA6692368C9EC00EE924B /* Question.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E693C74923608D1000A76E0D = {
 			isa = PBXGroup;
 			children = (
@@ -462,6 +477,7 @@
 		E693C75423608D1000A76E0D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				E68FA6642368392D00EE924B /* Models */,
 				E6DAED5A23665F720041ECF3 /* Extensions */,
 				E62B964023623442008CDB60 /* Modules */,
 				E62B95FB2361C778008CDB60 /* Definitions */,
@@ -517,6 +533,7 @@
 			children = (
 				E6DAED5B23665F950041ECF3 /* UITableViewExtension.swift */,
 				E608CDA12366FB7A00F392A3 /* UIViewExtension.swift */,
+				E68FA6672368BBCF00EE924B /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -692,6 +709,8 @@
 				E6DAED4C2364DEBE0041ECF3 /* TransitionFactory-Main.swift in Sources */,
 				E62B961C2361CB91008CDB60 /* TRPersistentStorage.swift in Sources */,
 				E602D4E123674E2900E2228B /* FinalLayout-Main.swift in Sources */,
+				E68FA6662368396700EE924B /* User.swift in Sources */,
+				E68FA66A2368C9EC00EE924B /* Question.swift in Sources */,
 				E62B961E2361CBB1008CDB60 /* TRExchangeFlow.swift in Sources */,
 				E68FA65F2367893400EE924B /* SplashSheet-Main.swift in Sources */,
 				E62B95F92361C6C9008CDB60 /* TRSheet.swift in Sources */,
@@ -701,6 +720,7 @@
 				E62B9647236234AB008CDB60 /* RoomSheet-Main.swift in Sources */,
 				E6DAED57236651C90041ECF3 /* TRListItemView.swift in Sources */,
 				E6DAED5F2366E23A0041ECF3 /* RoomUserListItem-Main.swift in Sources */,
+				E68FA6682368BBCF00EE924B /* StringExtension.swift in Sources */,
 				E6DAED502364DFED0041ECF3 /* Module-Main.swift in Sources */,
 				E6DAED4A2364DE7A0041ECF3 /* SheetFactory-Main.swift in Sources */,
 				E62B96392361E349008CDB60 /* TRRepository.swift in Sources */,
@@ -841,7 +861,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EL7Y3KN88H;
 				INFOPLIST_FILE = Meta/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -861,7 +881,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EL7Y3KN88H;
 				INFOPLIST_FILE = Meta/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

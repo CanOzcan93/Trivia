@@ -52,6 +52,21 @@ open class TRButton: UIButton {
         self.onClickDelegate()
     }
     
+    private var onClickDelegateWithButton: ActionWith<TRButton>!
+    
+    public func onClickWithButton(_ delegate: ActionWith<TRButton>!) {
+        
+        self.onClickDelegateWithButton = delegate
+        
+        self.addTarget(self, action: #selector(on_click_with_button), for: .touchUpInside)
+        
+    }
+    
+    @objc
+    private func on_click_with_button() {
+        self.onClickDelegateWithButton(self)
+    }
+    
     
     // Draw Implementation
     

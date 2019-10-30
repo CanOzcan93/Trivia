@@ -43,6 +43,7 @@ open class TRSharepoint {
             instance!.repository!.stateMachine = TRStateMachine()
             
             instance!.agency!.manager!.apiManager!.injectDependencies()
+            instance!.agency!.manager!.networkManager!.injectDependencies()
             
             return instance!
             
